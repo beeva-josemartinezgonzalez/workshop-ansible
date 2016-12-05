@@ -1,3 +1,5 @@
+[![ansible_logo](https://s18.postimg.org/rhp7txu61/ansible_logo.png)](https://postimg.org/image/6xkdvgeet/)
+
 # [genDevOps] workshop-ansible
 
 El propósito de este ejercicio es poner en práctica los recursos esenciales de 
