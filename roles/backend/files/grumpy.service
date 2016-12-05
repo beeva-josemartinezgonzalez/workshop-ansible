@@ -1,0 +1,11 @@
+[Unit]
+Description=grumpy service initialization
+
+[Service]
+PIDFile=/tmp/grumpy.pid
+User=root
+Group=root
+ExecStart=/opt/grumpy
+
+[Install]
+WantedBy=multi-user.target

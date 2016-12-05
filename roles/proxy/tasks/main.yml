@@ -1,0 +1,11 @@
+---
+- name: install packages
+
+- name: clean default index
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state:
+
+- name: add config
+
+- name: start service

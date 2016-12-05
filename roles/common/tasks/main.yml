@@ -1,0 +1,11 @@
+---
+- name: install packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ common_packages }}"
+
+- name: customize welcome message
+  copy:
+    content: 
+    dest: /etc/motd

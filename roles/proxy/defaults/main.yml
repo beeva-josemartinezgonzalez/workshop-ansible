@@ -1,0 +1,5 @@
+---
+proxy_config_file: /etc/nginx/nginx.conf
+proxy_listen_port: 
+proxy_upstream: backend
+proxy_connections: 1024

@@ -1,0 +1,28 @@
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+  worker_connections {{ proxy_connections }};
+  multi_accept on;
+}
+
+http {
+  upstream {{ proxy_upstream }} {
+{% for item in proxy_backend_servers %}
+    server {{ item }};
+{% endfor %}
+  }
+
+  server {
+    listen {{ proxy_listen_port }};
+      ssl off;
+
+        location / {
+          proxy_pass http://{{ proxy_upstream }};
+        }
+  }
+
+  include /etc/nginx/sites-enabled/*.conf;
+}
+

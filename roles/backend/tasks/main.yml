@@ -1,0 +1,17 @@
+---
+- name: get app source
+  unarchive:
+    src: "{{ backend_src }}"
+    dest: "{{ backend_extract_location }}"
+    copy: no
+  notify: restart grumpy
+
+- name: create service
+
+- name: start service
+
+- name: check
+  uri:
+    url: "{{ backend_check_url }}"
+    status_code: 200
+  when: backend_check_url is defined

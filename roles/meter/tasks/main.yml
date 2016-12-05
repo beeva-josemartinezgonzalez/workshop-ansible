@@ -1,0 +1,40 @@
+---
+- name: install packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ruby2.3
+    - ruby2.3-dev
+    - make
+    - thin
+
+- name: install gems
+
+- name: get app source
+
+- name: create service
+  copy:
+    src: files/meter.service
+    dest: "{{ meter_service_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: 
+    - reload systemd
+    - restart meter
+
+- name: add nginx config
+
+- name: link app to root dir
+  file:
+    src: "{{ meter_root_dir }}-{{ meter_version }}"
+    dest: "{{ meter_root_dir }}"
+    state:
+    owner: root
+    group: root
+    mode: 0755
+
+- name: start service
+
+- name: check

@@ -1,0 +1,12 @@
+upstream {{ meter_upstream }} {
+	server {{ meter_server }};
+}
+	
+server {
+	root {{ meter_root_dir }};
+	listen {{ meter_port }};
+	access_log {{ meter_access_log }};
+	location /metrics {
+		proxy_pass http://{{ meter_upstream }};
+	}
+}

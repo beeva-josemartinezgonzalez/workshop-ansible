@@ -1,0 +1,18 @@
+---
+# deploy
+meter_version: 1.0.1
+meter_src: "https://github.com/ivanfoo/meter/archive/v{{ meter_version }}.tar.gz"
+meter_extract_location: /var/www/
+meter_service_file: /etc/systemd/system/meter.service
+meter_bundle_bin: ~/.gem/ruby/2.3.0/bin/bundle
+
+# thin
+meter_thin_config: "/var/www/meter/thin/config.yml"
+meter_server: 127.0.0.1:3000
+
+# nginx
+meter_upstream: metrics
+meter_root_dir: "/var/www/meter"
+meter_port: 
+meter_access_log: /var/log/nginx/meter.log
+meter_nginx_file: /etc/nginx/sites-enabled/meter.conf

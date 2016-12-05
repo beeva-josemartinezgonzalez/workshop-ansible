@@ -1,0 +1,8 @@
+---
+- name: provision all servers
+  hosts: 
+  roles:
+    - common
+
+- include: proxy.yml
+- include: backend.yml

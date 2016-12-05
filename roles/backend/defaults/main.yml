@@ -1,0 +1,5 @@
+---
+backend_version: v2.0.0
+backend_src: "https://github.com/ivanfoo/grumpy/releases/download/{{ backend_version }}/grumpy-{{ backend_version }}.tgz"
+backend_extract_location: /opt/
+backend_service_file: /etc/systemd/system/grumpy.service

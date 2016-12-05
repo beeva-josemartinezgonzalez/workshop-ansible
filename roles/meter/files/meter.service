@@ -1,0 +1,14 @@
+[Unit]
+Description=meter service initialization
+
+[Service]
+Type=forking
+PIDFile=/tmp/meter.pid
+User=root
+Group=root
+ExecStart=/usr/bin/thin start -d -C /var/www/meter/thin/config.yml
+ExecStop=/usr/bin/thin stop -d -C /var/www/meter/thin/config.yml
+ExecRestart=/usr/bin/thin restart -d -C /var/www/meter/thin/config.yml
+
+[Install]
+WantedBy=multi-user.target

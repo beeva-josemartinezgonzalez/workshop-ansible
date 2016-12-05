@@ -1,0 +1,7 @@
+---
+- name: restart nginx
+
+- name: reload systemd
+  command: systemctl daemon-reload
+
+- name: restart meter
