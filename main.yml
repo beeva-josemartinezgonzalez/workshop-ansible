@@ -1,8 +1,11 @@
 ---
 - name: provision all servers
   hosts: 
+    - proxy
+    - backend 
   roles:
     - common
 
 - include: proxy.yml
 - include: backend.yml
+- include: meter.yml

@@ -1,0 +1,5 @@
+---
+- name: provision backend
+  hosts: backend
+  roles:
+    - backend

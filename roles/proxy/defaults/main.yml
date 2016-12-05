@@ -1,5 +1,5 @@
 ---
 proxy_config_file: /etc/nginx/nginx.conf
-proxy_listen_port: 
+proxy_listen_port: 80 
 proxy_upstream: backend
 proxy_connections: 1024

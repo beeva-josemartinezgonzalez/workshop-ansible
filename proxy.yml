@@ -2,3 +2,4 @@
 - name: provision proxy server
   hosts: proxy
   roles:
+    - proxy

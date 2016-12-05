@@ -13,6 +13,7 @@ meter_server: 127.0.0.1:3000
 # nginx
 meter_upstream: metrics
 meter_root_dir: "/var/www/meter"
-meter_port: 
+meter_port: 8000 
 meter_access_log: /var/log/nginx/meter.log
 meter_nginx_file: /etc/nginx/sites-enabled/meter.conf
+

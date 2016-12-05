@@ -1,11 +1,22 @@
 ---
 - name: install packages
+  package:
+    name: nginx
+    state: installed
 
 - name: clean default index
   file:
     path: /etc/nginx/sites-enabled/default
-    state:
+    state: absent
 
 - name: add config
-
+  template:
+    src: templates/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
+  
 - name: start service
+  service:
+    name: nginx
+    state: started 
+    enabled: true

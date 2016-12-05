@@ -1,0 +1,5 @@
+---
+- name: provision meter server
+  hosts: proxy
+  roles:
+    - meter

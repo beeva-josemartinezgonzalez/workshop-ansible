@@ -7,5 +7,5 @@
 
 - name: customize welcome message
   copy:
-    content: 
+    content: hola 
     dest: /etc/motd

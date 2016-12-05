@@ -7,8 +7,15 @@
   notify: restart grumpy
 
 - name: create service
+  copy:
+    src: files/grumpy.service
+    dest: "{{ backend_service_file }}"
 
 - name: start service
+  service:
+    name: grumpy
+    state: started
+    enabled: true
 
 - name: check
   uri:

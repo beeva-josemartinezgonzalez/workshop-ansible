@@ -10,8 +10,15 @@
     - thin
 
 - name: install gems
+  gem:
+    name: sinatra
+    state: latest 
 
 - name: get app source
+  unarchive:
+    src: "{{ meter_src }}"
+    dest: "{{ meter_extract_location }}"
+    copy: no
 
 - name: create service
   copy:
@@ -25,16 +32,29 @@
     - restart meter
 
 - name: add nginx config
+  template:
+    src: templates/nginx.conf.j2
+    dest: "{{ meter_nginx_file }}"
+  notify: restart nginx
 
 - name: link app to root dir
   file:
     src: "{{ meter_root_dir }}-{{ meter_version }}"
     dest: "{{ meter_root_dir }}"
-    state:
+    state: link
     owner: root
     group: root
     mode: 0755
 
 - name: start service
+  service:
+    name: meter
+    state: started
+    enabled: true
+  
+#- name: check
+#  uri:
+#    url: "{{ backend_check_url }}"
+#    status_code: 200
+#  when: backend_check_url is defined
 
-- name: check
